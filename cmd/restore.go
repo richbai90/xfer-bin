@@ -5,17 +5,17 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"github.com/richbai90/xfer-bin/pkg/xfer"
 	"github.com/spf13/cobra"
-	"github.com/richbai90/xfer-bin/pkg/action"
 )
 
-var source, dest string;
+var source, dest string
 
 // initCmd represents the init command
 var restoreCmd = &cobra.Command{
 	Use:   "restore",
 	Short: "Restore an archive",
-	Run: action.Restore(&source, &dest),
+	RunE:   xfer.Restore(&source, &dest, &Debug),
 }
 
 func init() {
